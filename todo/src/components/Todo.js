@@ -1,16 +1,10 @@
-import React, { useReducer } from 'react'
-
-import { initialState, todoReducer } from '../reducers/reducer'
+import React from 'react'
 
 const Todo = () => {
-
-    const [state, dispatch] = useReducer(todoReducer, initialState)
-    console.log('state in Todo.js', state) 
     return (
-        <div key={state.id}>
-            <h1>{state.item}</h1>
-        </div>
+        <h2>From Todo</h2>
     )
+    
 }
 
 export default Todo

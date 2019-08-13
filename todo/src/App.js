@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useReducer } from 'react'
 import './App.css';
 
-import Todo from './components/Todo'
+import { initialState, todoReducer } from './reducers/reducer'
+import Todoform from './components/TodoForm'
 
 function App() {
-  return (
-    <div className="App">
-      <h1>App.js</h1>
-      <Todo />
-    </div>
-  );
+  const [state, dispatch] = useReducer(todoReducer, initialState)
+    console.log('state in Todo.js', state) 
+    return (
+      <div>
+        <div key={state.id}>
+            <h1>{state.item}</h1>
+        </div>
+        <Todoform />
+      </div>
+    )
 }
 
 export default App;
