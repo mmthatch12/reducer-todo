@@ -1,5 +1,5 @@
 export const initialState = {
-    things:[{
+    tasks:[{
     item: 'Learn about reducers',
     completed: false,
     id: 3892987489
@@ -10,7 +10,7 @@ export const todoReducer = (state, action) => {
         case 'ADD_TODO':
             return {
                 ...state, 
-                things:[...state.things,
+                tasks:[...state.tasks,
                 {item: action.payload,
                 completed: false,
                 id: Date.now()}]
@@ -18,7 +18,16 @@ export const todoReducer = (state, action) => {
         case 'TOGGLE_COMPLETED':
             return {
                 ...state,
-                things:state.things.map(thing => {})
+                tasks:state.tasks.map(task => {
+                    if(task.id === id) {
+                        return{
+                            ...task,
+                            completed: !task.completed
+                        }
+                    } else {
+                        return task;
+                    }
+                })
             }
         default:
             return state

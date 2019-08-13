@@ -3,7 +3,6 @@ import React, { useState, useReducer } from 'react'
 import { initialState, todoReducer } from '../reducers/reducer'
 
 
-import Todo from './Todo'
 
 const TodoForm = () => {
     const[newTodo, setNewTodo] = useState()
@@ -34,7 +33,13 @@ const TodoForm = () => {
                     dispatch({ type: 'ADD_TODO', payload: newTodo })}>Add Todo</button>
             </form>
             {state.things.map(todo => 
-               <h2>{todo.item}</h2>
+                <div >
+
+                    <h2 className='task'>{todo.item}</h2>
+                    <h2>{todo.id}</h2>
+                    <h2>done:{todo.completed ? 'false' : 'true'}</h2>
+                    <button onClick={() => dispatch({ type: 'TOGGLE_COMPLETED'})}>Done?</button>
+               </div>
             )}
         </div>
 
