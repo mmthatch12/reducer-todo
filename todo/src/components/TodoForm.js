@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState, useReducer } from 'react'
+
+import { initialState, todoReducer } from '../reducers/reducer'
 
 
 import Todo from './Todo'
 
-const TodoForm = (props) => {
-    console.log('props', props)
+const TodoForm = () => {
+
+    const[state, dispatch] = useReducer(todoReducer, initialState)
+    console.log(state)
 
     return(
         <div>
@@ -16,7 +20,6 @@ const TodoForm = (props) => {
                 <button type="submit">Add Todo</button>
             </form>
             <Todo />
-            <h2>{props.initialState.item}</h2>
         </div>
 
     )
