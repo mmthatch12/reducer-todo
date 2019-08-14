@@ -16,6 +16,7 @@ const TodoForm = () => {
 
     const handleChanges = event => {
         setNewTodo(event.target.value)
+        console.log(state)
     }
 
     return(
@@ -32,13 +33,10 @@ const TodoForm = () => {
                     onClick={() => 
                     dispatch({ type: 'ADD_TODO', payload: newTodo })}>Add Todo</button>
             </form>
-            {state.things.map(todo => 
-                <div >
-
-                    <h2 className='task'>{todo.item}</h2>
-                    <h2>{todo.id}</h2>
-                    <h2>done:{todo.completed ? 'false' : 'true'}</h2>
-                    <button onClick={() => dispatch({ type: 'TOGGLE_COMPLETED'})}>Done?</button>
+            {state.tasks.map(todo => 
+                <div>
+                    <h2 className={`task${todo.completed ? ' completed' : ''}`}
+                    onClick={() => dispatch({ type: 'TOGGLE_COMPLETED', payload: todo.id }) }>{todo.item}</h2>
                </div>
             )}
         </div>

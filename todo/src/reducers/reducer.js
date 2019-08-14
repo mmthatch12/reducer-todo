@@ -10,7 +10,7 @@ export const todoReducer = (state, action) => {
         case 'ADD_TODO':
             return {
                 ...state, 
-                tasks:[...state.tasks,
+                tasks: [...state.tasks,
                 {item: action.payload,
                 completed: false,
                 id: Date.now()}]
@@ -18,8 +18,8 @@ export const todoReducer = (state, action) => {
         case 'TOGGLE_COMPLETED':
             return {
                 ...state,
-                tasks:state.tasks.map(task => {
-                    if(task.id === id) {
+                tasks: state.tasks.map(task => {
+                    if(task.id === action.payload) {
                         return{
                             ...task,
                             completed: !task.completed
