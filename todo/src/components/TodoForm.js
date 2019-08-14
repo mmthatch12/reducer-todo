@@ -32,6 +32,9 @@ const TodoForm = () => {
                 <button 
                     onClick={() => 
                     dispatch({ type: 'ADD_TODO', payload: newTodo })}>Add Todo</button>
+                <button
+                    onClick={() => 
+                    dispatch({ type: 'CLEAR_COMPLETED', payload: newTodo})}>Clear Completed Tasks</button>
             </form>
             {state.tasks.map(todo => 
                 <div>

@@ -7,7 +7,7 @@ import Todoform from './components/TodoForm'
 function App() {
 
     return (
-      <div>
+      <div className='App'>
         <Todoform />
       </div>
     )
