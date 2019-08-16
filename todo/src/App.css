@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.task {
+  background-color: none;
+}
+
+.task.completed {
+  background-color: green;
+  text-decoration: line-through;
+}
